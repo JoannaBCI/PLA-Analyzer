@@ -1,4 +1,5 @@
 PLA-Analyzer
+
 A Python-based fluorescence microscopy tool for quantifying PLA puncta and protein signal per nucleus, grouped by cell type. What it does:
 - Segments nuclei from DAPI channel
 - Counts PLA puncta (dots) per nucleus
