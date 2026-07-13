@@ -7,12 +7,15 @@ A Python-based fluorescence microscopy tool for quantifying PLA puncta and prote
 - Outputs summary plots and CSV data
 
 Acknowledgements
+
 [Mitochondria Analyzer](https://github.com/AhsenChaudhry/Mitochondria-Analyzer) — Ahsen Chaudhry
 
 [mito_localization](https://github.com/cavalcantegc/mito_localization) — Cavalcante GC & Kowaltowski AJ
 
 Usage
+
 Coming soon.
 
 Requirements
+
 Coming soon.
