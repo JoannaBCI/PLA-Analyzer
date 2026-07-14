@@ -1,4 +1,5 @@
-Proximity Ligation Assay (PLA) image analyzer.
+Proximity Ligation Assay (PLA) Image Analyzer.
+
 Quantifies protein-protein interaction puncta (dots) per nucleus from confocal fluorescence microscopy images.
  
 Protocol based on:
