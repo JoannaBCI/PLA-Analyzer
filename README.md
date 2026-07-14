@@ -7,6 +7,7 @@ Lopez-Cano et al. (2019) "Proximity Ligation Assay Image Analysis Protocol:
   Addressing Receptor-Receptor Interactions." Methods in Molecular Biology.
  
 Inputs:
+  
   --dapi Path to DAPI channel image (nuclei), TIFF/PNG/BMP
   
   --pla  Path to PLA channel image (fluorescent dots), TIFF/PNG/BMP
