@@ -1,8 +1,19 @@
+import argparse
+import sys
+from pathlib import Path
+ 
 import numpy as np
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import tifffile
-from skimage import filters, measure, segmentation
+import matplotlib.patches as mpatches
+from matplotlib.colors import Normalize
+from matplotlib.cm import get_cmap
+ 
+from skimage import filters, measure, segmentation, morphology, color
+from skimage.io import imread, imsave
+from scipy import ndimage as ndi
 
 def segment_nuclei(image):
     blurred = filters.gaussian(image, sigma=2)
