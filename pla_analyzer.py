@@ -25,3 +25,21 @@ def load_image(path: str) -> np.ndarray:
     else:
         img = img.astype(np.float32)
     return img
+
+def segment_nuclei(image: np.ndarray,
+                   gaussian_sigma: float = 2.0,
+                   min_nucleus_area_um2: float = 30.0,
+                   pixel_size_um: float = 1.0) -> np.ndarray:
+    blurred = filters.gaussian(image, sigma=gaussian_sigma)
+      thresh = filters.threshold_otsu(blurred)
+    binary = blurred > thresh
+    binary = ndi.binary_fill_holes(binary)
+    min_area_px = int(min_nucleus_area_um2 / (pixel_size_um ** 2))
+    binary = morphology.remove_small_objects(binary, min_size=min_area_px)
+    distance = ndi.distance_transform_edt(binary)
+    coords = measure.peak_local_max(distance, footprint=np.ones((9, 9)), labels=binary)
+    mask_peaks = np.zeros(distance.shape, dtype=bool)
+    mask_peaks[tuple(coords.T)] = True
+    markers, _ = ndi.label(mask_peaks)
+    labeled = segmentation.watershed(-distance, markers, mask=binary)
+    return labeled
